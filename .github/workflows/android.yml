@@ -9,22 +9,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📥 Checkout
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: ☕ Set up Java
+      - name: Set up Java
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: 🔧 Permissão no gradlew
+      - name: Permissão
         run: chmod +x gradlew
 
-      - name: 🏗️ Build APK
-        run: ./gradlew assembleDebug
+      - name: Build APK
+        run: ./gradlew assembleDebug -x externalNativeBuildDebug
 
-      - name: 📦 Upload APK
+      - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: app-debug
