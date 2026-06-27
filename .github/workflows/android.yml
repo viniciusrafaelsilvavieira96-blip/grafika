@@ -16,13 +16,13 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
-          java-version: '17'
+          java-version: '8'
 
       - name: Permissão
         run: chmod +x gradlew
 
       - name: Build APK
-        run: run: ./gradlew assembleDebug -x externalNativeBuildDebug
+        run: ./gradlew assembleDebug -x externalNativeBuildDebug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
